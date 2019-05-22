@@ -468,7 +468,7 @@
 <p>​       Dalam hal akumulasi, <em>decision tree</em> juga seringkali mengalami kendala eror terutama dalam jumlah besar. Selain itu, terdapat pula kesulitan dalam mendesain <em>decision tree</em> yang optimal. Apalagi mengingat kualitas keputusan yang didapatkan dari metode <em>decision tree</em> sangat tergantung pada bagaimana pohon tersebut didesain.</p>
 <p>​       Terlepas dari kekurangan dan kelebihan dari <em>decision tree</em>, metode ini banyak digunakan lebih lanjut dalam berbagai pengolahan data. Mulai dari data mining dan juga <em>machine learning</em>. Dalam dunia kerja, <em>decision tree</em> sendiri sangat berguna untuk penilaian <em>credit scoring.</em> Jika anda pernah mengajukan kredit yang diproses secara instan, nah anda sudah mempunyai pengalaman dari <em>decision tree</em>.</p>
 <h4 id="struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan"><strong>Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan</strong><a class="headerlink" href="#struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan" title="Permanent link">&para;</a></h4>
-<p><img alt="struktur_pohon" src="D:\Programs\mkdocs-material-master\docs\assets\images\struktur_pohon.png" /></p>
+<p><img alt="struktur_pohon" src="../assets/images/struktur_pohon.png" /></p>
 <p>Pada pohon keputusan terdapat tiga jenis <em>node</em>, antara lain :</p>
 <p><strong>1. Akar</strong>
 Merupakan <em>node</em> teratas, pada <em>node</em> ini tidak ada input dan dapat tidak mempunyai output atau dapat mempunyai output lebih dari satu.
@@ -487,13 +487,13 @@ Merupakan <em>node</em> akhir atau terminal <em>node</em>, pada <em>node</em> in
 <p>Entropi(S) = 0, jika semua contoh pada S berada dalam kelas yang sama.
 Entroiy(S) = 1, jika jumlah contoh positif dan jumlah contoh negatif dalam S adalah sama.
 0 &lt; Entropi(S) &lt; 1, jika jumlah contoh positif dan negatif dalam S tidak sama.</p>
-<p><img alt="entropi" src="D:\Programs\mkdocs-material-master\docs\assets\images\entropi.png" /></p>
+<p><img alt="entropi" src="../assets/images/entropi.png" /></p>
 <p>Dimana:
 • <em>S</em> adalah himpunan (dataset) kasus
 • <em>k</em> adalah banyaknya partisi <em>S</em>
 • <em>pj</em> adalah probabilitas yang di dapat dari Sum(Ya) dibagi Total Kasus.</p>
 <p>Setelah mendapat nilai entropi, pemilihan atribut dilakukan dengan nilai information gain terbesar.</p>
-<p><img alt="gain" src="D:\Programs\mkdocs-material-master\docs\assets\images\gain.png" /></p>
+<p><img alt="gain" src="../assets/images/gain.png" /></p>
 <h4 id="implementasi-program-menggunakan-perhitungan-entropy">Implementasi Program Menggunakan Perhitungan Entropy<a class="headerlink" href="#implementasi-program-menggunakan-perhitungan-entropy" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Import Library</li>
@@ -525,7 +525,7 @@ print(df.head())
 print(&#39;\n&#39;)
 </pre></div>
 
-<p><img alt="infodata" src="D:\Programs\mkdocs-material-master\docs\assets\images\infodata.JPG" /></p>
+<p><img alt="infodata" src="../assets/images/infodata.JPG" /></p>
 <ol>
 <li>Memilah data</li>
 </ol>
@@ -583,7 +583,7 @@ graph.write_png(&#39;entropy.png&#39;)
 Image(graph.create_png())
 </pre></div>
 
-<p><img alt="pohonentropy" src="D:\Programs\mkdocs-material-master\docs\assets\images\pohonentropy.JPG" /></p>
+<p><img alt="pohonentropy" src="../assets/images/pohonentropy.JPG" /></p>
 <ol>
 <li>Menampilkan Hasil Prediksi Data Entropy</li>
 </ol>
@@ -611,7 +611,7 @@ print (&quot;\n&quot;)
 print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction,Y_validation))
 </pre></div>
 
-<p><img alt="hasilentropy" src="D:\Programs\mkdocs-material-master\docs\assets\images\hasilentropy.JPG" /></p>
+<p><img alt="hasilentropy" src="../assets/images/hasilentropy.JPG" /></p>
 <h4 id="prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini">Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini<a class="headerlink" href="#prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Kemudian kita coba menggunakan metode perhitungan gini. Adapun caranya sama seperti decision tree. yang membedakannya adalah criterionnya. kita tinggal mengubahnya menjadi gini.</li>
@@ -640,7 +640,7 @@ graph.write_png(&#39;gini.png&#39;)
 Image(graph.create_png())
 </pre></div>
 
-<p><img alt="pohongini" src="D:\Programs\mkdocs-material-master\docs\assets\images\pohongini.JPG" /></p>
+<p><img alt="pohongini" src="../assets/images/pohongini.JPG" /></p>
 <ol>
 <li>Menampilkan Hasil Prediksi Data Gini</li>
 </ol>
@@ -668,7 +668,7 @@ print (&quot;\n&quot;)
 print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction_gini,Y_validation))
 </pre></div>
 
-<p><img alt="hasilgini" src="D:\Programs\mkdocs-material-master\docs\assets\images\hasilgini.JPG" /></p>
+<p><img alt="hasilgini" src="../assets/images/hasilgini.JPG" /></p>
 <p>Kesimpulannya hasil perhitungan entropy dan gini hampir sama, namun tingkat akurasi perhitungan entropy lebih akurat dengan akurasi 0.93 sedangkan perhitungan gini akurasinya 0.86</p>
 <p><strong>Referensi</strong></p>
 <p><a href="https://medium.com/@mimubarok.mim/decision-tree-pohon-keputusan-6484ad30c289">https://medium.com/@mimubarok.mim/decision-tree-pohon-keputusan-6484ad30c289</a></p>
