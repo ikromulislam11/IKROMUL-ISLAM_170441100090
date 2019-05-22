@@ -495,9 +495,9 @@ Entroiy(S) = 1, jika jumlah contoh positif dan jumlah contoh negatif dalam S ada
 <p>Setelah mendapat nilai entropi, pemilihan atribut dilakukan dengan nilai information gain terbesar.</p>
 <p><img alt="gain" src="../assets/images/gain.png" /></p>
 <h4 id="implementasi-program-menggunakan-perhitungan-entropy">Implementasi Program Menggunakan Perhitungan Entropy<a class="headerlink" href="#implementasi-program-menggunakan-perhitungan-entropy" title="Permanent link">&para;</a></h4>
-<ol>
+<ul>
 <li>Import Library</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>import pandas as pd 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import model_selection
@@ -509,9 +509,9 @@ import pydotplus
 from IPython.display import Image
 </pre></div>
 
-<ol>
+<ul>
 <li>Load dataset</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>#memuat file excel
 df=pd.read_excel(&#39;Cryotherapy.xlsx&#39;)
 
@@ -526,9 +526,9 @@ print(&#39;\n&#39;)
 </pre></div>
 
 <p><img alt="infodata" src="../assets/images/infodata.JPG" /></p>
-<ol>
+<ul>
 <li>Memilah data</li>
-</ol>
+</ul>
 <p>jika data sudah sukses terimport, selanjutnya kita akan memilah data ke beberapa bagian seperti data yang akan d jadikan testing, training, dan yang akan dijadikan classnya. di sini saya menggunakan 15 data untuk testingnya dan data kolom terakhir sebagai classnya. berikut kodenya :</p>
 <div class="codehilite"><pre><span></span>#splitting dataset ke training dan testing
 train, test = train_test_split(df, test_size = 0.1,random_state=1234)
@@ -546,9 +546,9 @@ seed = 7
 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
 </pre></div>
 
-<ol>
+<ul>
 <li>Tampil Hasil Pemilahan Data</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>#mencari hasil
 print(X_train.shape)
 print(Y_train.shape)
@@ -556,9 +556,9 @@ print(X_validation.shape)
 print(Y_validation.shape)
 </pre></div>
 
-<ol>
+<ul>
 <li>Prediksi Data Menggunakan Library scikit lear metode Decision Tree Entropy</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>entropy= DecisionTreeClassifier(criterion=&quot;entropy&quot;,random_state=1234)
 #learning
 entropy.fit(X_train,Y_train)
@@ -570,9 +570,9 @@ print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction,Y_validation))
 print(&quot;Confusion Metrix:\n&quot;,metrics.confusion_matrix(prediction,Y_validation))
 </pre></div>
 
-<ol>
+<ul>
 <li>Menampilkan Pohon Data</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>feature_cols=[&#39;age&#39;,&#39;Time&#39;,&#39;Number_of_Warts&#39;  ,&#39;Type&#39; , &#39;Area&#39;]
 dot_data = StringIO()
 export_graphviz(entropy, out_file=dot_data,  
@@ -584,9 +584,9 @@ Image(graph.create_png())
 </pre></div>
 
 <p><img alt="pohonentropy" src="../assets/images/pohonentropy.JPG" /></p>
-<ol>
+<ul>
 <li>Menampilkan Hasil Prediksi Data Entropy</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>print(&quot;Hasil prediksi menggunakan entropy&quot;)
 #Membentuk kembali diperlukan untuk melakukan penggabungan
 pred_clf_df = pd.DataFrame(prediction.reshape(15,1))
@@ -613,9 +613,9 @@ print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction,Y_validation))
 
 <p><img alt="hasilentropy" src="../assets/images/hasilentropy.JPG" /></p>
 <h4 id="prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini">Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini<a class="headerlink" href="#prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini" title="Permanent link">&para;</a></h4>
-<ol>
+<ul>
 <li>Kemudian kita coba menggunakan metode perhitungan gini. Adapun caranya sama seperti decision tree. yang membedakannya adalah criterionnya. kita tinggal mengubahnya menjadi gini.</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>gini= DecisionTreeClassifier(criterion=&quot;gini&quot;,random_state=1234)
 #learning
 gini.fit(X_train,Y_train)
@@ -627,9 +627,9 @@ print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction_gini,Y_validation)
 print(&quot;Confusion Metrix:\n&quot;,metrics.confusion_matrix(prediction_gini,Y_validation))
 </pre></div>
 
-<ol>
+<ul>
 <li>Menampilkan Pohon Data</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>feature_cols=[&#39;age&#39;,&#39;Time&#39;,&#39;Number_of_Warts&#39;  ,&#39;Type&#39; , &#39;Area&#39;]
 dot_data = StringIO()
 export_graphviz(gini, out_file=dot_data,  
@@ -641,9 +641,9 @@ Image(graph.create_png())
 </pre></div>
 
 <p><img alt="pohongini" src="../assets/images/pohongini.JPG" /></p>
-<ol>
+<ul>
 <li>Menampilkan Hasil Prediksi Data Gini</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span>print(&quot;Hasil prediksi menngunakan gini&quot;)
 #Membentuk kembali diperlukan untuk melakukan penggabungan
 pred_clf_df = pd.DataFrame(prediction.reshape(15,1))
