@@ -1,0 +1,755 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Data Mining">
+      
+      
+        <link rel="canonical" href="https://ikromulislam11.github.io/IKROMUL-ISLAM_170441100090/Tree/">
+      
+      
+        <meta name="author" content="Ikromul Islam">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.2.0">
+    
+    
+      
+        <title>Decision Tree - Data Mining</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.750b69bd.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#decision-tree-classifier-gain" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://ikromulislam11.github.io/IKROMUL-ISLAM_170441100090/" title="Data Mining" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Data Mining
+            </span>
+            <span class="md-header-nav__topic">
+              Decision Tree
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://ikromulislam11.github.io/IKROMUL-ISLAM_170441100090/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    IKROMUL-ISLAM_170441100090/
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="Biografi" class="md-tabs__link md-tabs__link--active">
+        Biografi
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://ikromulislam11.github.io/IKROMUL-ISLAM_170441100090/" title="Data Mining" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Data Mining
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://ikromulislam11.github.io/IKROMUL-ISLAM_170441100090/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    IKROMUL-ISLAM_170441100090/
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Biografi" class="md-nav__link">
+      Biografi
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Kmeans/" title="K-means" class="md-nav__link">
+      K-means
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../KNN/" title="K-nearest neighbour" class="md-nav__link">
+      K-nearest neighbour
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Decision Tree
+      </label>
+    
+    <a href="./" title="Decision Tree" class="md-nav__link md-nav__link--active">
+      Decision Tree
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan" title="Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan" class="md-nav__link">
+    Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entropy-information-gain" title="Entropy &amp; Information Gain" class="md-nav__link">
+    Entropy &amp; Information Gain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-program-menggunakan-perhitungan-entropy" title="Implementasi Program Menggunakan Perhitungan Entropy" class="md-nav__link">
+    Implementasi Program Menggunakan Perhitungan Entropy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini" title="Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini" class="md-nav__link">
+    Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan" title="Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan" class="md-nav__link">
+    Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entropy-information-gain" title="Entropy &amp; Information Gain" class="md-nav__link">
+    Entropy &amp; Information Gain
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-program-menggunakan-perhitungan-entropy" title="Implementasi Program Menggunakan Perhitungan Entropy" class="md-nav__link">
+    Implementasi Program Menggunakan Perhitungan Entropy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini" title="Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini" class="md-nav__link">
+    Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="decision-tree-classifier-gain">Decision Tree Classifier (Gain)<a class="headerlink" href="#decision-tree-classifier-gain" title="Permanent link">&para;</a></h1>
+<p>​       Secara singkat bahwa Decision Tree merupakan salah satu metode klasifikasi pada Text Mining. Klasifikasi adalah proses menemukan kumpulan pola atau fungsi-fungsi yang mendeskripsikan dan memisahkan kelas data satu dengan lainnya, untuk dapat digunakan untuk memprediksi data yang belum memiliki kelas data tertentu (Jianwei Han, 2001).</p>
+<p>​       Decision Tree adalah sebuah struktur pohon, dimana setiap node pohon merepresentasikan atribut yang telah diuji, setiap cabang merupakan suatu pembagian hasil uji, dan node daun (leaf) merepresentasikan kelompok kelas tertentu. Level node teratas dari sebuah Decision Tree adalah node akar (root) yang biasanya berupa atribut yang paling memiliki pengaruh terbesar pada suatu kelas tertentu. Pada umumnya Decision Tree melakukan strategi pencarian secara top-down untuk solusinya. Pada proses mengklasifikasi data yang tidak diketahui, nilai atribut akan diuji dengan cara melacak jalur dari node akar (root) sampai node akhir (daun) dan kemudian akan diprediksi kelas yang dimiliki oleh suatu data baru tertentu.</p>
+<p>​       Kelebihan lain dari metode ini adalah mampu mengeliminasi perhitungan atau data-data yang kiranya tidak diperlukan. Sebab, sampel yang ada biasanya hanya diuji berdasarkan kriteria atau kelas tertentu saja.</p>
+<p>​       Meski memiliki banyak kelebihan, namun bukan berarti metode ini tidak memiliki kekurangan. <em>Decision tree</em> ini bisa terjadi overlap, terutama ketika kelas dan kriteria yang digunakan sangat banyak tentu saja dapat meningkatkan waktu pengambilan keputusan sesuai dengan jumlah memori yang dibutuhkan.</p>
+<p>​       Dalam hal akumulasi, <em>decision tree</em> juga seringkali mengalami kendala eror terutama dalam jumlah besar. Selain itu, terdapat pula kesulitan dalam mendesain <em>decision tree</em> yang optimal. Apalagi mengingat kualitas keputusan yang didapatkan dari metode <em>decision tree</em> sangat tergantung pada bagaimana pohon tersebut didesain.</p>
+<p>​       Terlepas dari kekurangan dan kelebihan dari <em>decision tree</em>, metode ini banyak digunakan lebih lanjut dalam berbagai pengolahan data. Mulai dari data mining dan juga <em>machine learning</em>. Dalam dunia kerja, <em>decision tree</em> sendiri sangat berguna untuk penilaian <em>credit scoring.</em> Jika anda pernah mengajukan kredit yang diproses secara instan, nah anda sudah mempunyai pengalaman dari <em>decision tree</em>.</p>
+<h4 id="struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan"><strong>Struktur dan Algoritma Dasar Pembelajaran Pohon Keputusan</strong><a class="headerlink" href="#struktur-dan-algoritma-dasar-pembelajaran-pohon-keputusan" title="Permanent link">&para;</a></h4>
+<p><img alt="struktur_pohon" src="D:\Programs\mkdocs-material-master\docs\assets\images\struktur_pohon.png" /></p>
+<p>Pada pohon keputusan terdapat tiga jenis <em>node</em>, antara lain :</p>
+<p><strong>1. Akar</strong>
+Merupakan <em>node</em> teratas, pada <em>node</em> ini tidak ada input dan dapat tidak mempunyai output atau dapat mempunyai output lebih dari satu.
+<strong>2. Internal node</strong> Merupakan <em>node</em> percabangan, pada <em>node</em> ini hanya terdapat satu input dan mempunyai output minimal dua.
+<strong>3. Daun</strong>
+Merupakan <em>node</em> akhir atau terminal <em>node</em>, pada <em>node</em> ini hanya terdapat satu input dan tidak mempunyai output (simpul terminal).</p>
+<p>Kebanyakan algoritma untuk pembelajaran pohon keputusan adalah variasi dari algoritma intinya yang menggunakan pencarian rakus (<em>greedy</em>) dari atas ke bawah terhadap ruang kemungkinan pohon keputusan. Salah satu algoritmanya yaitu ID3. Langkah-langkah yang dilakukan yaitu,</p>
+<ul>
+<li>Tentukan atribut terbaik untuk <em>root</em> dari <em>tree</em>. Setiap instan dari atribut dievaluasi menggunakan sebuah tes statistik untuk menentukan seberapa bagus atribut tersebut mengklasifikasi sampel latihan.</li>
+<li>Turunan dari node root dibuat untuk setiap kemungkinan nilai dari atribut</li>
+<li>Sampel latihan kemudian diurutkan berdasarkan node turunan.</li>
+<li>Seluruh proses kemudian diulang menggunakan sampel latihan yang berhubungan dengan setiap node turunan untuk menentukan atribut terbaik untuk dites di pohon.</li>
+</ul>
+<h4 id="entropy-information-gain"><strong>Entropy &amp; Information Gain</strong><a class="headerlink" href="#entropy-information-gain" title="Permanent link">&para;</a></h4>
+<p>Algoritma pada metode ini menggunakan konsep dari entropi. Konsep Entropi yang digunakan untuk mengukur “seberapa informatifnya” sebuah node (yang biasanya disebut seberapa baiknya).</p>
+<p>Entropi(S) = 0, jika semua contoh pada S berada dalam kelas yang sama.
+Entroiy(S) = 1, jika jumlah contoh positif dan jumlah contoh negatif dalam S adalah sama.
+0 &lt; Entropi(S) &lt; 1, jika jumlah contoh positif dan negatif dalam S tidak sama.</p>
+<p><img alt="entropi" src="D:\Programs\mkdocs-material-master\docs\assets\images\entropi.png" /></p>
+<p>Dimana:
+• <em>S</em> adalah himpunan (dataset) kasus
+• <em>k</em> adalah banyaknya partisi <em>S</em>
+• <em>pj</em> adalah probabilitas yang di dapat dari Sum(Ya) dibagi Total Kasus.</p>
+<p>Setelah mendapat nilai entropi, pemilihan atribut dilakukan dengan nilai information gain terbesar.</p>
+<p><img alt="gain" src="D:\Programs\mkdocs-material-master\docs\assets\images\gain.png" /></p>
+<h4 id="implementasi-program-menggunakan-perhitungan-entropy">Implementasi Program Menggunakan Perhitungan Entropy<a class="headerlink" href="#implementasi-program-menggunakan-perhitungan-entropy" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Import Library</li>
+</ol>
+<div class="codehilite"><pre><span></span>import pandas as pd 
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import model_selection
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+from sklearn.tree import export_graphviz
+from sklearn.externals.six import StringIO   
+import pydotplus
+from IPython.display import Image
+</pre></div>
+
+<ol>
+<li>Load dataset</li>
+</ol>
+<div class="codehilite"><pre><span></span>#memuat file excel
+df=pd.read_excel(&#39;Cryotherapy.xlsx&#39;)
+
+
+#menampilkan data
+print(&quot;Informasi Data\n&quot;)
+print(&quot;Jumlah Data : &quot;, len(df))
+print (&quot;Dimensi Data : &quot;,df.shape)
+print (&quot;Dataset :&quot;)
+print(df.head())
+print(&#39;\n&#39;)
+</pre></div>
+
+<p><img alt="infodata" src="D:\Programs\mkdocs-material-master\docs\assets\images\infodata.JPG" /></p>
+<ol>
+<li>Memilah data</li>
+</ol>
+<p>jika data sudah sukses terimport, selanjutnya kita akan memilah data ke beberapa bagian seperti data yang akan d jadikan testing, training, dan yang akan dijadikan classnya. di sini saya menggunakan 15 data untuk testingnya dan data kolom terakhir sebagai classnya. berikut kodenya :</p>
+<div class="codehilite"><pre><span></span>#splitting dataset ke training dan testing
+train, test = train_test_split(df, test_size = 0.1,random_state=1234)
+#mencari hasil
+print(train.shape)
+print(test.shape)
+# Dataset validasi dataset
+array = df.values
+X = array[:,1:6]
+Y = array[:,6]
+
+validation_size = 15
+
+seed = 7
+X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
+</pre></div>
+
+<ol>
+<li>Tampil Hasil Pemilahan Data</li>
+</ol>
+<div class="codehilite"><pre><span></span>#mencari hasil
+print(X_train.shape)
+print(Y_train.shape)
+print(X_validation.shape)
+print(Y_validation.shape)
+</pre></div>
+
+<ol>
+<li>Prediksi Data Menggunakan Library scikit lear metode Decision Tree Entropy</li>
+</ol>
+<div class="codehilite"><pre><span></span>entropy= DecisionTreeClassifier(criterion=&quot;entropy&quot;,random_state=1234)
+#learning
+entropy.fit(X_train,Y_train)
+#Prediksi
+prediction=entropy.predict(X_validation)
+#mengevaluasi(Accuracy)
+print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction,Y_validation))
+#evaluation(Confusion Metrix)
+print(&quot;Confusion Metrix:\n&quot;,metrics.confusion_matrix(prediction,Y_validation))
+</pre></div>
+
+<ol>
+<li>Menampilkan Pohon Data</li>
+</ol>
+<div class="codehilite"><pre><span></span>feature_cols=[&#39;age&#39;,&#39;Time&#39;,&#39;Number_of_Warts&#39;  ,&#39;Type&#39; , &#39;Area&#39;]
+dot_data = StringIO()
+export_graphviz(entropy, out_file=dot_data,  
+                filled=True, rounded=True,
+                special_characters=True,feature_names = feature_cols,class_names=[&#39;Positive&#39;,&#39;negative&#39;])
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
+graph.write_png(&#39;entropy.png&#39;)
+Image(graph.create_png())
+</pre></div>
+
+<p><img alt="pohonentropy" src="D:\Programs\mkdocs-material-master\docs\assets\images\pohonentropy.JPG" /></p>
+<ol>
+<li>Menampilkan Hasil Prediksi Data Entropy</li>
+</ol>
+<div class="codehilite"><pre><span></span>print(&quot;Hasil prediksi menggunakan entropy&quot;)
+#Membentuk kembali diperlukan untuk melakukan penggabungan
+pred_clf_df = pd.DataFrame(prediction.reshape(15,1))
+
+#Ganti nama kolom untuk menunjukkan prediksi
+pred_clf_df.rename(columns={0:&#39;Prediction&#39;}, inplace=True)
+
+#membentuk kembali dataset uji
+X_validation_df = pd.DataFrame(X_validation.reshape(15 ,5))
+
+#menggabungkan dua bingkai data panda di atas kolom untuk membuat dataset prediksi
+pred_outcome = pd.concat([X_validation_df, pred_clf_df], axis=1, join_axes=[X_validation_df.index])
+
+pred_outcome.rename(columns = {0:&#39;age&#39;,1:&#39;Time&#39;,2:&#39;Number_of_Warts&#39;  ,3:&#39;Type&#39; ,4: &#39;Area&#39;}, inplace=True)
+
+
+
+#cetak 10 baris prediksi akhir
+print((pred_outcome).head(15))
+print (&quot;\n&quot;)
+#mengevaluasi(Accuracy)
+print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction,Y_validation))
+</pre></div>
+
+<p><img alt="hasilentropy" src="D:\Programs\mkdocs-material-master\docs\assets\images\hasilentropy.JPG" /></p>
+<h4 id="prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini">Prediksi Data Menggunakan Library scikit learn metode Decision Tree Gini<a class="headerlink" href="#prediksi-data-menggunakan-library-scikit-learn-metode-decision-tree-gini" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Kemudian kita coba menggunakan metode perhitungan gini. Adapun caranya sama seperti decision tree. yang membedakannya adalah criterionnya. kita tinggal mengubahnya menjadi gini.</li>
+</ol>
+<div class="codehilite"><pre><span></span>gini= DecisionTreeClassifier(criterion=&quot;gini&quot;,random_state=1234)
+#learning
+gini.fit(X_train,Y_train)
+#Prediksi
+prediction_gini=gini.predict(X_validation)
+#mengevaluasi(Accuracy)
+print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction_gini,Y_validation))
+#evaluation(Confusion Metrix)
+print(&quot;Confusion Metrix:\n&quot;,metrics.confusion_matrix(prediction_gini,Y_validation))
+</pre></div>
+
+<ol>
+<li>Menampilkan Pohon Data</li>
+</ol>
+<div class="codehilite"><pre><span></span>feature_cols=[&#39;age&#39;,&#39;Time&#39;,&#39;Number_of_Warts&#39;  ,&#39;Type&#39; , &#39;Area&#39;]
+dot_data = StringIO()
+export_graphviz(gini, out_file=dot_data,  
+                filled=True, rounded=True,
+                special_characters=True,feature_names = feature_cols,class_names=[&#39;Positive&#39;,&#39;negative&#39;])
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())  
+graph.write_png(&#39;gini.png&#39;)
+Image(graph.create_png())
+</pre></div>
+
+<p><img alt="pohongini" src="D:\Programs\mkdocs-material-master\docs\assets\images\pohongini.JPG" /></p>
+<ol>
+<li>Menampilkan Hasil Prediksi Data Gini</li>
+</ol>
+<div class="codehilite"><pre><span></span>print(&quot;Hasil prediksi menngunakan gini&quot;)
+#Membentuk kembali diperlukan untuk melakukan penggabungan
+pred_clf_df = pd.DataFrame(prediction.reshape(15,1))
+
+#Ganti nama kolom untuk menunjukkan prediksi
+pred_clf_df.rename(columns={0:&#39;Prediction&#39;}, inplace=True)
+
+#membentuk kembali dataset uji
+X_validation_df = pd.DataFrame(X_validation.reshape(15 ,5))
+
+#menggabungkan dua bingkai data panda di atas kolom untuk membuat dataset prediksi
+pred_outcome = pd.concat([X_validation_df, pred_clf_df], axis=1, join_axes=[X_validation_df.index])
+
+pred_outcome.rename(columns = {0:&#39;age&#39;,1:&#39;Time&#39;,2:&#39;Number_of_Warts&#39;  ,3:&#39;Type&#39; ,4: &#39;Area&#39;}, inplace=True)
+
+
+
+#cetak 10 baris prediksi akhir
+print((pred_outcome).head(15))
+print (&quot;\n&quot;)
+#mengevaluasi(Accuracy)
+print(&quot;Accuracy:&quot;,metrics.accuracy_score(prediction_gini,Y_validation))
+</pre></div>
+
+<p><img alt="hasilgini" src="D:\Programs\mkdocs-material-master\docs\assets\images\hasilgini.JPG" /></p>
+<p>Kesimpulannya hasil perhitungan entropy dan gini hampir sama, namun tingkat akurasi perhitungan entropy lebih akurat dengan akurasi 0.93 sedangkan perhitungan gini akurasinya 0.86</p>
+<p><strong>Referensi</strong></p>
+<p><a href="https://medium.com/@mimubarok.mim/decision-tree-pohon-keputusan-6484ad30c289">https://medium.com/@mimubarok.mim/decision-tree-pohon-keputusan-6484ad30c289</a></p>
+<p><a href="https://medium.com/iykra/mengenal-decision-tree-dan-manfaatnya-b98cf3cf6a8d">https://medium.com/iykra/mengenal-decision-tree-dan-manfaatnya-b98cf3cf6a8d</a></p>
+<p><a href="http://dyan123.blogspot.com/2012/03/pengertian-decision-tree.html">http://dyan123.blogspot.com/2012/03/pengertian-decision-tree.html</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../KNN/" title="K-nearest neighbour" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                K-nearest neighbour
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 Ikromul Islam
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/squidfunk" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/squidfunk" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/squidfunk" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.8c0d971c.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
